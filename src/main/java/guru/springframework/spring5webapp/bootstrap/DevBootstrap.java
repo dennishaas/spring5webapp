@@ -43,7 +43,6 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         Book  ddd = new Book("Domain Driven Design", "1234", publisher);
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
-
         authorRepository.save(eric);
         bookRepository.save(ddd);
 
@@ -56,5 +55,10 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 
         authorRepository.save(rod);
         bookRepository.save(noEJB);
+
+        Publisher publisher = new Publisher("The publisher","Friedrich Ebert Str. 24 ","Langgöns","35428","Germany");
+        publisherRepository.save(publisher);
+        System.out.println(publisher);
+        publisherRepository.findAll().forEach(System.out::println);
     }
 }
